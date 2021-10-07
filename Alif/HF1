@@ -1,0 +1,67 @@
+fun main() {
+    run1()
+}
+
+fun run1() {
+    println("\nHello!, Welcome to the simple calculator by Alif\n")
+    println("Type the first number below! (if you wanna quit just type \"0\")")
+    val a = readLine()?.toLong() ?: 0
+    println("""
+        
+        ===================================
+        Operator lists :
+        - "+" for "Plus"
+        - "-" for "Minus"
+        - ":" for "Divided"
+        - "*" for "Multiplied"
+        - "%" for "Modulus"
+        
+        Type "q" or "Q" to Quit the calculator
+        ===================================
+        Type the symbol operator below!
+        |
+        v
+    """.trimIndent())
+    val b = readLine()
+    println("\nType the second number below! (if you wanna quit just type \"0\")")
+    val c = readLine()?.toLong() ?: 0
+    if (b == "q" || b == "Q"){
+        println("""
+            
+            Function detected :
+            Calculator has been stopped
+            """.trimIndent())
+    } else {
+        calculator(a, b, c)
+    }
+}
+
+fun calculator(num1: Long?, symb: String?, num2: Long?){
+    when (symb) {
+        "+" -> {
+            val aa = num2?.let { num1?.plus(it) }
+            println("Results : $num1 $symb $num2 = $aa")
+            run1()
+        }
+        "-" -> {
+            val ab = num2?.let { num1?.minus(it) }
+            println("Results : $num1 $symb $num2 = $ab")
+            run1()
+        }
+        ":" -> {
+            val ac = num2?.let { num1?.div(it) }
+            println("Results : $num1 $symb $num2 = $ac")
+            run1()
+        }
+        "*" -> {
+            val ad = num2?.let { num1?.times(it) }
+            println("Results : $num1 $symb $num2 = $ad")
+            run1()
+        }
+        "%" -> {
+            val ae = num2?.let { num1?.rem(it) }
+            println("Results : $num1 $symb $num2 = $ae")
+            run1()
+        }
+    }
+}
